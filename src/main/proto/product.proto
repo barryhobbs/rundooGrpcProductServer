@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.rundoo.product.grpc";
+package product;
+// Product Service
+service ProductService {
+  rpc FindProduct (FindProductRequest) returns (FindProductResponse) {}
+  rpc AddProduct (AddProductRequest) returns (AddProductResponse) {}
+}
+
+message Product {
+  string sku = 1;
+  string name = 2;
+  string category = 3;
+}
+
+message FindProductRequest {
+  string search_string = 1;
+}
+message FindProductResponse {
+  repeated Product products = 1;
+}
+
+message SkuComponents {
+  optional string company_id = 1;
+  optional int32 category_id = 2;
+  optional int32 sequence_id = 3;
+  optional string full_sku = 4;
+}
+
+message Error {
+  optional string code = 1;
+  optional string message = 2;
+  optional string stack = 3;
+}
+
+message AddProductRequest {
+  SkuComponents sku_components = 1;
+  string name = 2;
+  string category = 3;
+}
+
+message AddProductResponse {
+  optional Product product = 1;
+  optional Error error = 2;
+}
