@@ -75,11 +75,8 @@ public class ProductServiceServer {
         public void addProduct(AddProductRequest request, StreamObserver<AddProductResponse> responseObserver) {
             try {
                 Document document = ProductDocument.makeDocumentFromRequest(request);
-
-                System.out.println("Hi there");
                 assert collection != null;
                 collection.insertOne(document);
-                System.out.println("Hi there 2");
                 // This is a little wasteful, but ya know, shortcuts.
                 responseObserver.onNext(AddProductResponse.newBuilder().setProduct(ProductDocument.makeProductFromDocument(document)).build());
                 responseObserver.onCompleted();
