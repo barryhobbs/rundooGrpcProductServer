@@ -37,6 +37,11 @@ for a blob of data, as this allows the flexibility of adding on-the-fly rules to
 deployment, and provides an easy mechanism for reporting when we see things go awry, versus the normal errors you get 
 from gRPC where you just never know why it didn't like whatever format you sent it.
 
+Re: pom.xml I didn't bother to go back and strip down the libraries I'm importing to the minimum required.  I was 
+originally going to make this a spring boot gRPC service, but there's no reason to do so for this simple use case, and 
+I didn't want to waste time for this as a demo.  You would of course spend the time to pare down the requirements in 
+reality.  Also, it's just handy using the mvn plugin to start everything.
+
 To build:
 ```
 mvn clean install
