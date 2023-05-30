@@ -1,4 +1,5 @@
-Getting started:
+This is the gRPC server for Rundoo's take-home interview problem.
+
 This will need java 17, and a local mongoDb instance running on port 27017.  To set up a new mongo instance easily, visit https://www.mongodb.com/docs/manual/  
 There is a web server that fronts this gRPC service here: https://github.com/barryhobbs/rundooProductWeb
 
